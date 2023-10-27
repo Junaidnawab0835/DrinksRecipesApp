@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home">Home</string>
+    <string name="favourites">Favourites</string>
+    <string name="by_name">By Name</string>
+    <string name="by_first_alphabet">By First Alphabet</string>
+    <string name="alcohol">Alcohol</string>
+</resources>
