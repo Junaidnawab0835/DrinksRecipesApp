@@ -5,15 +5,17 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity("DB_FAVOURITE")
-data class Favourite (
-    @PrimaryKey(true)
-    val drinkId:Long = 0,
+data class Favourite(
+    @PrimaryKey()
+    val drinkId:String,
     @ColumnInfo("drink_name")
     val drinkName:String,
-    @ColumnInfo("drink_title")
-    val drinkTitle:String,
-    @ColumnInfo("drink_image")
-        val drinkImage:String,
+    @ColumnInfo("drink_description")
+    val drinkDescription:String,
     @ColumnInfo("alcohol")
-    val isAlcohol:Boolean
+    val isAlcohol:Boolean,
+    @ColumnInfo("favourite")
+    val isFavourite:Boolean,
+    @ColumnInfo(name = "drink_image")
+    val imageData: ByteArray?
 )

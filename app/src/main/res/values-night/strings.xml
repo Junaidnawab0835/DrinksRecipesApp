@@ -5,4 +5,6 @@
     <string name="by_name">By Name</string>
     <string name="by_first_alphabet">By First Alphabet</string>
     <string name="alcohol">Alcohol</string>
+    <string name="drinkrecipes">Drink Recipes</string>
+    <string name="favourite_recipe">Favourite Recipe</string>
 </resources>

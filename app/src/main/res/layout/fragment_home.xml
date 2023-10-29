@@ -1,67 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".fragments.HomeFragment">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:background="#00BCD4"
-            android:layout_height="80dp">
+            android:id="@+id/linearLayout_title"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:background="@color/bg_color"
+            app:layout_constraintBottom_toTopOf="@+id/linearlyt_radiobtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
             <TextView
+                android:id="@+id/page_title"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:textSize="20dp"
+                android:text="Activity Name"
                 android:textColor="@color/white"
-                android:id="@+id/page_title"
-                android:text="Activity Name">
-            </TextView>
+                android:textSize="20dp"></TextView>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:id="@+id/linearlyt_radiobtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/searchView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout_title">
+
             <RadioGroup
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/radio_btn_search_by_name"
+                android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/radio_btn_search_by_name"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/by_name"
-                    android:layout_height="wrap_content">
-                </RadioButton>
+                    android:text="@string/by_name"></RadioButton>
 
                 <RadioButton
+                    android:id="@+id/radio_btn_search_by_alphabet"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/by_first_alphabet"
-                    android:layout_height="wrap_content">
-                </RadioButton>
+                    android:text="@string/by_first_alphabet"></RadioButton>
             </RadioGroup>
         </LinearLayout>
 
         <androidx.appcompat.widget.SearchView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:id="@+id/searchView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/progressbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearlyt_radiobtn"></androidx.appcompat.widget.SearchView>
 
-        </androidx.appcompat.widget.SearchView>
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/home_recyclerview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"></ProgressBar>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/home_recyclerview">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:id="@+id/home_recyclerview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progressbar"></androidx.recyclerview.widget.RecyclerView>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

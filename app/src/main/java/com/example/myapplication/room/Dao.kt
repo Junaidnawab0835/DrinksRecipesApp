@@ -1,24 +1,26 @@
 package com.example.myapplication.room
 
-import androidx.lifecycle.LiveData
+
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.myapplication.data.Drink
+import com.example.myapplication.data.Favourite
 
 
 @Dao
 interface Dao {
-
-    @Insert(onConflict = OnConflictStrategy.ABORT)
-    suspend fun insertItem(items: Drink)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertItem(items: Favourite)
 
     @Delete()
-    suspend fun deleteItem(items: Drink)
+    fun deleteItem(items: Favourite)
 
     @Query("SELECT * FROM DB_FAVOURITE")
-    suspend fun getAllFavouriteDrinks():LiveData<List<Drink>>
+    fun getAllFavouriteDrinks():List<Favourite>
+
+    @Query("SELECT COUNT() FROM DB_FAVOURITE WHERE drinkId = :id")
+    fun checkExist(id: String): Int
 
 }

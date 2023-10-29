@@ -11,7 +11,7 @@ import com.example.myapplication.data.Favourite
     version = 1
 )
 abstract class DrinkDatabase:RoomDatabase() {
-
+    abstract fun getDatabaseDao():Dao
     companion object{
         @Volatile
         private var instance: DrinkDatabase? = null
@@ -22,6 +22,6 @@ abstract class DrinkDatabase:RoomDatabase() {
                 instance = it
             }
         }
-        private fun createDatabase(context: Context) = Room.databaseBuilder(context.applicationContext,DrinkDatabase::class.java,"favouriteDb.db").build()
+        private fun createDatabase(context: Context) = Room.databaseBuilder(context.applicationContext,DrinkDatabase::class.java,"favourite.db").build()
     }
 }
